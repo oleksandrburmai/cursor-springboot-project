@@ -35,6 +35,8 @@ public class CarServiceImpl implements CarService {
     @Override
     public Response updateCar(User userId, Integer carId, Car car) {
         if (carRepository.findById(carId).isPresent() & carRepository.findById(carId).get().getUserId() == userId) {
+            car.setId(carId);
+            car.setUserId(userId);
             carRepository.save(car);
             return Response.builder()
                     .message("Car info updated")
