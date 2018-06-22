@@ -37,7 +37,7 @@ public class CarController {
     }
 
 
-    @DeleteMapping("/users/{userId}/car/{carId}/delete")
+    @GetMapping("/users/{userId}/car/{carId}/delete")
     public Response deleteCar(@PathVariable(name = "userId") User userId,
                               @PathVariable(name = "carId") Integer carId) {
         return carService.deleteCar(userId, carId);

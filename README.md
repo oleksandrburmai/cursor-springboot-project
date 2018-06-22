@@ -30,7 +30,7 @@ There are below routes for User:
 	"description": "XXX"
 }
 ```
-* `/users/{userId}/car/{carId}/delete` - (DELETE) delete car.
+* `/users/{userId}/car/{carId}/delete` - (GET) delete car.
 * `/users/{userId}/cars` - (GET) all user car.
 
 Also user have all routes that have anonymous user.
