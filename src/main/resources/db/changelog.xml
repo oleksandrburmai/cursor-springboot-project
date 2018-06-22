@@ -6,10 +6,10 @@
     <preConditions onFail="HALT">
         <dbms type="postgresql"/>
     </preConditions>
-    
+
     <changeSet id="1" author="Oleksandr">
         <createTable tableName="USERS">
-            <column name="ID" type="BIGINT" autoIncrement="true">
+            <column name="ID" type="SERIAL" autoIncrement="true">
                 <constraints nullable="false" unique="true" primaryKey="true" primaryKeyName="users_id"/>
             </column>
             <column name="FIRST_NAME" type="VARCHAR(30)">
@@ -19,9 +19,9 @@
                 <constraints nullable="false"/>
             </column>
             <column name="EMAIL" type="VARCHAR(30)">
-                <constraints nullable="false"/>
+                <constraints nullable="false" unique="true"/>
             </column>
-            <column name="PASSWORD" type="VARCHAR(30)">
+            <column name="PASSWORD" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
             <column name="MOBILE_NUMBER" type="VARCHAR(15)">
@@ -30,9 +30,15 @@
             <column name="DATE_OF_REGISTRATION" type="TIMESTAMPTZ">
                 <constraints nullable="false"/>
             </column>
+            <column name="ROLES" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ACTIVE" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
         <createTable tableName="CARS">
-            <column name="ID" type="BIGINT" autoIncrement="true">
+            <column name="ID" type="SERIAL" autoIncrement="true">
                 <constraints nullable="false" unique="true" primaryKey="true" primaryKeyName="cars_id"/>
             </column>
             <column name="MARK" type="VARCHAR(30)">
@@ -47,7 +53,7 @@
             <column name="PRICE" type="NUMERIC(8,2)">
                 <constraints nullable="false"/>
             </column>
-            <column name="YEAR" type="DATE">
+            <column name="YEAR" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
             <column name="COUNTRY_OF_REGISTRATION" type="VARCHAR(20)">
@@ -55,6 +61,10 @@
             </column>
             <column name="DESCRIPTION" type="VARCHAR(255)">
                 <constraints nullable="false"/>
+            </column>
+            <column name="USER_ID" type="SERIAL">
+                <constraints nullable="false" referencedTableName="USERS" referencedColumnNames="ID"
+                             foreignKeyName="user_id_fk"/>
             </column>
         </createTable>
     </changeSet>
