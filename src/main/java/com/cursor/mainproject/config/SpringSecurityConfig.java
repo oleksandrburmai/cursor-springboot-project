@@ -1,4 +1,4 @@
-package com.cursor.mainproject.security;
+package com.cursor.mainproject.config;
 
 import com.cursor.mainproject.domain.Role;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,5 +53,4 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .permitAll();
     }
-
 }

@@ -1,4 +1,4 @@
-package com.cursor.mainproject.security;
+package com.cursor.mainproject.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
