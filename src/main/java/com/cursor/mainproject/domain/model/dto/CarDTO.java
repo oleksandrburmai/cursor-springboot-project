@@ -3,8 +3,8 @@ package com.cursor.mainproject.domain.model.dto;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.validation.constraints.DecimalMax;
-import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -24,8 +24,8 @@ public class CarDTO {
     @NotNull(message = "Price can not be NULL")
     private Double price;
     @NotNull(message = "Year can not be NULL")
-    @DecimalMin(value = "1900", message = "Year must be between 1900 and current year")
-    @DecimalMax(value = "3000", message = "Year must be between 1900 and current year")
+    @Min(value = 1900, message = "Year must be between 1900 and current year")
+    @Max(value = 2018, message = "Year must be between 1900 and current year")
     private Integer year;
     @NotNull(message = "Country of registration can not be NULL")
     @Size(min = 1, max = 20, message = "From 1 to 20 chars")
